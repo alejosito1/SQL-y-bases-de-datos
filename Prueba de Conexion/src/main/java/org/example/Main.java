@@ -15,8 +15,10 @@ public class Main {
             myCon = DriverManager.getConnection("jdbc:mysql://localhost:3306/ejercicio","root","");
             System.out.println("Genial, nos conectamos.");
 
-            createProduct("Laive leche deslactosada 395gr", BigDecimal.valueOf(4.20));
+            //createProduct("Laive leche deslactosada 395gr", BigDecimal.valueOf(4.20));
 
+            updateProductQuantity(11, BigDecimal.valueOf(50));
+            System.out.println("--------------------------------------------");
             showColum("name");
 
         } catch (Exception e) {
@@ -41,6 +43,16 @@ public class Main {
         myRes = mystamt1.executeQuery("SELECT  * FROM product");
         while (myRes.next()){
             System.out.println(myRes.getString(colum));
+        }
+    }
+
+    public static void updateProductQuantity(Integer id,BigDecimal quantity) throws SQLException {
+        mystamt1 = myCon.createStatement();
+        int rowsAffected;
+        rowsAffected = mystamt1.executeUpdate("UPDATE product " + "set quantity=" + quantity + " WHERE id="+id);
+        myRes = mystamt1.executeQuery("SELECT * FROM product order by price_sale");
+        while (myRes.next()){
+            System.out.println(myRes.getString("name") + ", " + myRes.getString("price_sale"));
         }
     }
 }
