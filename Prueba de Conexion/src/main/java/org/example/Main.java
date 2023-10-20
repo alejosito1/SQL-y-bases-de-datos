@@ -17,7 +17,8 @@ public class Main {
 
             //createProduct("Laive leche deslactosada 395gr", BigDecimal.valueOf(4.20));
 
-            updateProductQuantity(11, BigDecimal.valueOf(50));
+            //updateProductQuantity(11, BigDecimal.valueOf(50));
+            deleteProductoById(11);
             System.out.println("--------------------------------------------");
             showColum("name");
 
@@ -54,5 +55,10 @@ public class Main {
         while (myRes.next()){
             System.out.println(myRes.getString("name") + ", " + myRes.getString("price_sale"));
         }
+    }
+    public static void deleteProductoById(Integer id) throws SQLException {
+        mystamt1 = myCon.createStatement();
+        Integer rowsAffected = mystamt1.executeUpdate("DELETE FROM product " + "WHERE id="+id);
+        System.out.println("Producto eliminado.");
     }
 }
