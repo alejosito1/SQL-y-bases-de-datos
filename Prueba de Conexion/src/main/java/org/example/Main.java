@@ -3,11 +3,11 @@ package org.example;
 import java.math.BigDecimal;
 import java.sql.*;
 
-public class Main {
-    private static Connection myCon = null;
-    private static Statement mystamt1 = null;
-    private static PreparedStatement myStamt = null;
-    private static ResultSet myRes = null;
+    public class Main {
+        private static Connection myCon = null;
+        private static Statement mystamt1 = null;
+        private static PreparedStatement myStamt = null;
+        private static ResultSet myRes = null;
     public static void main(String[] args) {
 
         try {
