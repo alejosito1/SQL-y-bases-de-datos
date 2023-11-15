@@ -1,5 +1,8 @@
 package org.example.main;
 
+import org.example.model.Employee;
+import org.example.repository.EmployeeRepository;
+import org.example.repository.Repository;
 import org.example.util.DatabaseConnection;
 
 import java.sql.*;
@@ -7,15 +10,10 @@ import java.sql.*;
 public class Main {
 
     public static void main(String[] args) throws SQLException {
-        try(Connection myCon = DatabaseConnection.getInstance()) {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+        try(Connection myConn = DatabaseConnection.getInstance()){
+            Repository<Employee> repository = new EmployeeRepository();
 
-            System.out.println("Genial, nos conectamos.");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("Algo salio mal.");
+            repository.findAll().forEach(System.out::println);
         }
-
     }
 }
