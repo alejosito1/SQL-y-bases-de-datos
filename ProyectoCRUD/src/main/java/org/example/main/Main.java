@@ -15,18 +15,21 @@ public class Main {
 
             System.out.println("---Listando---");
             repository.findAll().forEach(System.out::println);
-//
-//            System.out.println("---Insertando un empleado---");
+
+//            System.out.println("---Actualizando un empleado---");
 //            Employee employee = new Employee();
+//            employee.setId(4);
 //            employee.setFirstName("Diego");
 //            employee.setPaSurName("Pimentel");
-//            employee.setMaSurName("Gutierrez");
+//            employee.setMaSurName("Villanueva");
 //            employee.setEmail("diego@gmail.com");
-//            employee.setSalary(19000F);
+//            employee.setSalary(30000F);
 //            repository.save(employee);
 
+            System.out.println("---Empleado eliminado---");
+            repository.delete(4);
 
-            System.out.println("---Nuevo empleado insertado---");
+            System.out.println("---Listando---");
             repository.findAll().forEach(System.out::println);
         }
     }
