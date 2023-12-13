@@ -8,16 +8,27 @@ public class Employee {
     private String email;
     private Float salary;
 
+    public String getCurp() {
+        return curp;
+    }
+
+    public void setCurp(String curp) {
+        this.curp = curp;
+    }
+
+    private String curp;
+
     public Employee() {
     }
 
-    public Employee(Integer id, String firstName, String paSurName, String maSurName, String email, Float salary) {
+    public Employee(Integer id, String firstName, String paSurName, String maSurName, String email, Float salary, String curp) {
         this.id = id;
         this.firstName = firstName;
         this.paSurName = paSurName;
         this.maSurName = maSurName;
         this.email = email;
         this.salary = salary;
+        this.curp = curp;
     }
 
     public Integer getId() {
@@ -76,7 +87,8 @@ public class Employee {
                 ", paSurName='" + paSurName + '\'' +
                 ", maSurName='" + maSurName + '\'' +
                 ", email='" + email + '\'' +
-                ", salary=" + salary +
+                ", salary=" + salary + '\'' +
+                ", curp=" + curp +
                 '}';
     }
 }
